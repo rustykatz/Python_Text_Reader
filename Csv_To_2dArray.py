@@ -1,3 +1,6 @@
+# Running on Python 3
+# Made by: Russell Wong 
+
 import csv
 
 def Csv_To_2dArray(filename):
@@ -38,7 +41,7 @@ def Select_Array(Data_Array, Array_Wanted):
 def Add_Back_Array(Array, Item):
 	Added_Back = Array + [Item]
 	return(Added_Back)
-	
+
 #def Add_Front_array(Data_Array):
 
 
