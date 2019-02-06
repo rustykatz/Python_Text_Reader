@@ -5,7 +5,7 @@ import csv
 
 def Csv_To_2dArray(filename):
 
-	Data_Array = []
+	Data_Matrix = []
 	
 	# Opens the file and reads it
 	with open(filename, 'r') as Csv_File:
@@ -14,13 +14,13 @@ def Csv_To_2dArray(filename):
 		Data_Reader = csv.reader(Csv_File, delimiter = " ")
 
 		# Takes each line in the csv file and makes it into an array
-		# The array is then added to our Data_Array 
-		# Data_Array is a 2d array, with the following parameters [Row][Column]
+		# The array is then added to our Data_Matrix
+		# Data_Matrix is a 2d array, with the following parameters [Row][Column]
 		for row in Data_Reader:
-			Data_Array.append(row)
+			Data_Matrix.append(row)
 
-	# Returns our Data_Array so we can use it	
-	return(Data_Array)
+	# Returns our Data_Matrix so we can use it	
+	return(Data_Matrix)
 
 # ~~~~~~~~~~ Printing functions ~~~~~~~~~~
 
@@ -37,15 +37,15 @@ def P_range(i,k, Array):
 	print(Array[i:k])
 
 # ~~~~~~~~~~ Select Row ~~~~~~~~~~  
-def Select_array(Array, Row):
+def Select_array(Matrix, Row):
 	Selected = []
-	Selected = Array[Row]
+	Selected = Matrix[Row]
 	return(Selected)
 
 # ~~~~~~~~~~ Methods ~~~~~~~~~~
-# - Append: Adds element to end of list.
+# - Append: Adds element to end of array.
 #			i.e. array.append('val')
-# - Extend: Adds list to another
+# - Extend: Adds array to another
 #			i.e. a.extend(y) will add all elements of y to a
 # - Insert: Inserts element into specific positon
 #			i.e. insert(index_to_insert_behind, element)
@@ -57,18 +57,18 @@ def Select_array(Array, Row):
 
 
 def main():
-	print("Begin Executing...\n")
+	print("Now Executing...\n")
 	File_Name = "txt_test.txt"
 
-	# Prints out our Array
-	arr = Csv_To_2dArray(File_Name)
-	print("Our Array: \n")
-	P_array(arr)
+	# Prints out our Matrix
+	Matrix = Csv_To_2dArray(File_Name)
+	print("Matrix: \n")
+	P_array(Matrix)
 	print("\n")
 
 	# Let's Select 1 of the arrays to work with
 	arr_index = 1
-	Selected = Select_array(arr, arr_index)
+	Selected = Select_array(Matrix, arr_index)
 	print("Selected array: Index->" + str(arr_index) + "\n")
 	P_array(Selected)
 	print("\n")
@@ -87,7 +87,7 @@ def main():
 
 	# Adding two items in matrix
 	print("Adding (0,0) and (2,1): ")
-	print(arr[0][0] + "+" + arr[2][1] + "=" + str(int(arr[0][0]) + int(arr[2][1])))
+	print(Matrix[0][0] + "+" + Matrix[2][1] + "=" + str(int(Matrix[0][0]) + int(Matrix[2][1])))
 	print("\n")
 
 	print("Executing Complete.\n")
