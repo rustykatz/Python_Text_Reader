@@ -1,6 +1,6 @@
 # Running on Python 3
 # Made by: Russell Wong 
-
+# Purpose: Quick refresher to help get back into any type of python programming  
 import csv
 
 def Csv_To_2dArray(filename):
@@ -10,10 +10,8 @@ def Csv_To_2dArray(filename):
 	# Opens the file and reads it
 	with open(filename, 'r') as Csv_File:
 
-		# Here we set the delimiter, this is the character that separates
-		# the data entries 
+		# Set the delimiter
 		Data_Reader = csv.reader(Csv_File, delimiter = " ")
-
 
 		# Takes each line in the csv file and makes it into an array
 		# The array is then added to our Data_Array 
@@ -21,79 +19,77 @@ def Csv_To_2dArray(filename):
 		for row in Data_Reader:
 			Data_Array.append(row)
 
-
 	# Returns our Data_Array so we can use it	
 	return(Data_Array)
 
+# ~~~~~~~~~~ Printing functions ~~~~~~~~~~
 
-# Simple function that takes our Array and prints it out 
-def Print_Array(Array):
+# Whole array
+def P_array(Array):
 	print(Array)
 
-# Simple Function that chooses which array to focus on from our 
-# Data_Array.
-def Select_Array(Data_Array, Array_Wanted):
+# Specific element 
+def P_element(i, Array):
+	print(Array[i])
+
+# Specific range of element
+def P_range(i,k, Array):
+	print(Array[i:k])
+
+# ~~~~~~~~~~ Select Row ~~~~~~~~~~  
+def Select_array(Array, Row):
 	Selected = []
-	Selected = Data_Array[Array_Wanted]
+	Selected = Array[Row]
 	return(Selected)
 
+# ~~~~~~~~~~ Methods ~~~~~~~~~~
+# - Append: Adds element to end of list.
+#			i.e. array.append('val')
+# - Extend: Adds list to another
+#			i.e. a.extend(y) will add all elements of y to a
+# - Insert: Inserts element into specific positon
+#			i.e. insert(index_to_insert_behind, element)
 
-def Add_Back_Array(Array, Item):
-	Added_Back = Array + [Item]
-	return(Added_Back)
-
-#def Add_Front_array(Data_Array):
-
+# ~~~~~~~~~~ Sorting ~~~~~~~~~~
+# - sort(): Sorts in Ascending order
+# - can pass it (reverse=True) To sort in Descending Order
+# - Can pass it key (key=fxn) To sort based on key 
 
 
 def main():
 	print("Begin Executing...\n")
 	File_Name = "txt_test.txt"
 
-	# Prints out our Data Array
-	print("Printing our Data Array: ")
-	Data_Array = Csv_To_2dArray(File_Name)
-	Print_Array(Data_Array)
+	# Prints out our Array
+	arr = Csv_To_2dArray(File_Name)
+	print("Our Array: \n")
+	P_array(arr)
 	print("\n")
 
 	# Let's Select 1 of the arrays to work with
-	print("Printing Selected Array: ")
-	Array_Wanted = 1
-	print("Selected array: " + str(Array_Wanted) + "\n")
-	Selected = Select_Array(Data_Array, Array_Wanted)
-	Print_Array(Selected)
+	arr_index = 1
+	Selected = Select_array(arr, arr_index)
+	print("Selected array: Index->" + str(arr_index) + "\n")
+	P_array(Selected)
 	print("\n")
 
-
-	# Let's try adding something to the back of our Array
-
-	# 1) Adding a whole array to our Data_Array
-	print("Adding An Array to Data_Array: \n")
-	New_Arr = [45,50,55,60]
-	Added_Back = Add_Back_Array(Data_Array, New_Arr)
-	Print_Array(Added_Back)
+	# Sorting array 
+	Selected.sort()
+	print("Sorting: ")
+	P_array(Selected)
 	print("\n")
 
-	# 2) Adding an item to an end of a selected Array
-	# print("Adding item to end of Data_Array: \n")
-	# new_item = 67
-	# print("item is: " + str(new_item))
-	# print("Array selected is: " + str(Selected))
-	# Item_Added_Back = Add_Back_Array(Selected, new_item)
-	# Print_Array(Item_Added_Back)
-	# print("\n")
+	# Reversing sorted array
+	print("Reversing Sorting: ")
+	Selected.sort(reverse=True)
+	P_array(Selected)
+	print("\n")
 
-
-	# Let's try adding somethignto the Front of our Array
-
-
-
-
-
-
-
-
-
+	# Adding two items in matrix
+	print("Adding (0,0) and (2,1): ")
+	print(arr[0][0] + "+" + arr[2][1] + "=" + str(int(arr[0][0]) + int(arr[2][1])))
+	print("\n")
 
 	print("Executing Complete.\n")
+
 main()
