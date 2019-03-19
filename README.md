@@ -1,13 +1,15 @@
-# Python_Text_Reader
+# Python Text Reader
 
-Created as a refresher to use before begining a python project involving data manipulation. Program takes a CSV and tokenizes each line of strings into an array. The arrays are then appended into a matrix. The data can then be manipulated and accessed using (Row, Col) cordinates. 
+Created to practice data manipulation in Python before starting a larger project. 
+
+Program takes a CSV (comma-separated value) file and tokenizes each line into an array. The arrays are then appended into a matrix. The data can then be manipulated and accessed using (row, col) coordinates. 
 
 # Functions
-- Print whole matrix, specific element, range
+- Print whole matrix, specific element, and range of elements
 - Selecting row 
-- Appending, Extending, Insertion
-- Sorting/ Reverse sorting
+- Appending, Extending, Insertion into matrix
+- Sorting / reverse sorting
 
 # Compatibility
-- Text files with a delimiter 
-- CSV 
+- Text files containing specified delimiter 
+- CSV file
